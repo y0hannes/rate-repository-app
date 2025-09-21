@@ -9,6 +9,20 @@ const styles = StyleSheet.create({
     fontFamily: theme.fonts.main,
     fontWeight: theme.fontWeights.normal,
   },
+  buttonText: {
+    color: '#fff',
+    alignSelf: 'flex-start',
+    backgroundColor: theme.colors.primary,
+    paddingHorizontal: 6,
+    paddingVertical: 4,
+    borderRadius: 4,
+    fontSize: 14,
+    marginTop: 6,
+  },
+  central: {
+    textAlign: 'center',
+    width: '100%',
+  },
   colorTextSecondary: {
     color: theme.colors.textSecondary,
   },
@@ -21,15 +35,21 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
+  error: {
+    color: theme.colors.error
+  }
 });
 
-const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
+const Text = ({ type, color, position, fontSize, fontWeight, style, ...props }) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
     color === 'primary' && styles.colorPrimary,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
+    type === 'button' && styles.buttonText,
+    type === 'error' && styles.error,
+    position === 'central' && styles.central,
     style,
   ];
 

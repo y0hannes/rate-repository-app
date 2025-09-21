@@ -6,16 +6,18 @@ const formatThousands = (num) => {
   return num >= 1000 ? (num / 1000).toFixed(1) + 'k' : String(num);
 };
 
+const styles = StyleSheet.create({
+  label: {
+    color: theme.colors.textSecondary,
+  },
+  stat: {
+    color: theme.colors.textPrimary,
+    fontWeight: theme.fontWeights.bold,
+    textAlign: 'center',
+  },
+});
+
 const StatItem = ({ label, value }) => {
-  const styles = StyleSheet.create({
-    label: {
-      color: theme.colors.textSecondary,
-    },
-    stat: {
-      color: theme.colors.textPrimary,
-      fontWeight: theme.fontWeights.bold,
-    },
-  });
   return (
     <View>
       <Text style={styles.stat}>{formatThousands(value)}</Text>
